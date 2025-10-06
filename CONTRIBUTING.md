@@ -1,174 +1,173 @@
-# Guia de Trabalho com Git - Projeto Rastro
+# Git Workflow Guide - Rastro Project
 
-## 1. Iniciando uma Nova Feature
+## 1. Starting a New Feature
 
-### 1.1. Criar e Mudar para Nova Branch
+### 1.1. Create and Switch to New Branch
 ```sh
-# Atualizar a main primeiro
+# Update main first
 git checkout main
 git pull origin main
 
-# Criar e mudar para nova branch
-git checkout -b feature/nome-da-feature
+# Create and switch to new branch
+git checkout -b feature/feature-name
 ```
 
-**Padrões para nomes de branches:**
-- `feature/` - Novas funcionalidades
-- `fix/` - Correções de bugs
-- `refactor/` - Refatorações
-- `docs/` - Documentação
+**Branch Naming Patterns:**
+- `feature/` - New features
+- `fix/` - Bug fixes
+- `refactor/` - Code refactoring
+- `docs/` - Documentation
 
-## 2. Trabalhando na Feature
+## 2. Working on the Feature
 
-### 2.1. Verificar Status das Alterações
+### 2.1. Check Changes Status
 ```sh
-# Ver arquivos modificados
+# View modified files
 git status
 
-# Ver alterações específicas
+# View specific changes
 git diff
 ```
 
-### 2.2. Preparar e Commitar Alterações
+### 2.2. Stage and Commit Changes
 ```sh
-# Adicionar alterações
-git add .              # Todos os arquivos
-git add arquivo.cs     # Arquivo específico
+# Add changes
+git add .              # All files
+git add file.cs        # Specific file
 
-# Criar commit
-git commit -m "tipo: descrição das alterações"
+# Create commit
+git commit -m "type: change description"
 ```
 
-**Padrões de Mensagens de Commit:**
-- `feat:` - Nova funcionalidade
-- `fix:` - Correção de bug
-- `refactor:` - Refatoração
-- `docs:` - Documentação
-- `style:` - Formatação
-- `test:` - Testes
+**Commit Message Patterns:**
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `refactor:` - Code refactoring
+- `docs:` - Documentation
+- `style:` - Formatting
+- `test:` - Tests
 
-### 2.3. Enviar Alterações para GitHub
+### 2.3. Push Changes to GitHub
 ```sh
-# Primeira vez
-git push -u origin feature/nome-da-feature
+# First time
+git push -u origin feature/feature-name
 
-# Próximas vezes
+# Subsequent times
 git push
 ```
 
-## 3. Integrando a Feature na Main
+## 3. Integrating Feature into Main
 
-### 3.1. Atualizar Branch Principal
+### 3.1. Update Main Branch
 ```sh
-# Mudar para main
+# Switch to main
 git checkout main
 
-# Baixar atualizações
+# Download updates
 git pull origin main
 ```
 
-### 3.2. Realizar o Merge
+### 3.2. Perform Merge
 ```sh
-# Mesclar feature na main
-git merge feature/nome-da-feature
+# Merge feature into main
+git merge feature/feature-name
 ```
 
-### 3.3. Resolver Conflitos (se necessário)
+### 3.3. Resolve Conflicts (if necessary)
 ```sh
-# Se houver conflitos:
-1. Abrir arquivos com conflitos no Visual Studio
-2. Escolher as alterações corretas
-3. Salvar arquivos
+# If there are conflicts:
+1. Open conflicting files in Visual Studio
+2. Choose correct changes
+3. Save files
 4. git add .
-5. git commit -m "merge: Integra feature/nome-da-feature"
+5. git commit -m "merge: Integrates feature/feature-name"
 ```
 
-### 3.4. Enviar para GitHub
+### 3.4. Push to GitHub
 ```sh
-# Enviar alterações mescladas
+# Push merged changes
 git push origin main
 ```
 
-## 4. Limpeza Pós-Merge
+## 4. Post-Merge Cleanup
 
-### 4.1. Remover Branches
+### 4.1. Remove Branches
 ```sh
-# Remover branch local
-git branch -d feature/nome-da-feature
+# Remove local branch
+git branch -d feature/feature-name
 
-# Remover branch remota
-git push origin --delete feature/nome-da-feature
+# Remove remote branch
+git push origin --delete feature/feature-name
 ```
 
-## 5. Comandos Úteis
+## 5. Useful Commands
 
-### 5.1. Gerenciamento de Branches
+### 5.1. Branch Management
 ```sh
-# Listar branches
-git branch                    # Locais
-git branch -a                 # Todas
+# List branches
+git branch                    # Local
+git branch -a                 # All
 
-# Mudar de branch
-git checkout nome-branch
+# Switch branch
+git checkout branch-name
 
-# Criar nova branch
-git checkout -b nova-branch
+# Create new branch
+git checkout -b new-branch
 ```
 
-### 5.2. Correções e Ajustes
+### 5.2. Fixes and Adjustments
 ```sh
-# Desfazer alterações não commitadas
-git restore arquivo.cs
+# Undo uncommitted changes
+git restore file.cs
 
-# Desfazer último commit (mantendo alterações)
+# Undo last commit (keeping changes)
 git reset --soft HEAD~1
 
-# Abortar merge com conflitos
+# Abort merge with conflicts
 git merge --abort
 ```
 
-## 6. Boas Práticas
+## 6. Best Practices
 
 1. **Branches**
-   - Uma branch por feature/correção
-   - Mantenha branches atualizadas com a main
-   - Delete branches após merge
+   - One branch per feature/fix
+   - Keep branches updated with main
+   - Delete branches after merge
 
 2. **Commits**
-   - Commits pequenos e focados
-   - Mensagens claras e descritivas
-   - Use os prefixos de tipo adequadamente
+   - Small and focused commits
+   - Clear and descriptive messages
+   - Use type prefixes appropriately
 
 3. **Merge**
-   - Sempre atualize a main antes do merge
-   - Teste após resolver conflitos
-   - Verifique se a aplicação continua funcionando
+   - Always update main before merging
+   - Test after resolving conflicts
+   - Verify application still works
 
-4. **Geral**
-   - Mantenha seu código local atualizado
-   - Faça commits frequentes
-   - Documente alterações importantes
+4. **General**
+   - Keep your local code updated
+   - Commit frequently
+   - Document important changes
 
-## 7. Fluxo de Trabalho Resumido
+## 7. Workflow Summary
 
 ```sh
-# 1. Iniciar Feature
+# 1. Start Feature
 git checkout main
 git pull origin main
-git checkout -b feature/nova-funcionalidade
+git checkout -b feature/new-feature
 
-# 2. Desenvolver
+# 2. Develop
 git add .
-git commit -m "feat: Implementa nova funcionalidade"
-git push -u origin feature/nova-funcionalidade
+git commit -m "feat: Implements new feature"
+git push -u origin feature/new-feature
 
-# 3. Finalizar e Integrar
+# 3. Finish and Integrate
 git checkout main
 git pull origin main
-git merge feature/nova-funcionalidade
+git merge feature/new-feature
 git push origin main
 
-# 4. Limpar
-git branch -d feature/nova-funcionalidade
-git push origin --delete feature/nova-funcionalidade
-```
+# 4. Cleanup
+git branch -d feature/new-feature
+git push origin --delete feature/new-feature```
