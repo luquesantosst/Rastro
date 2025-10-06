@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rastro.API.Controllers.ViewModel.Request;
 using Rastro.API.Controllers.ViewModel.Response;
-using Rastro.API.Extensions;
 using Rastro.Domain.DTOs.ContasAPagar;
 using Rastro.Domain.Interfaces.Service;
 
