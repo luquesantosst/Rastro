@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/1 - Core/">
+    <Project Path="Rastro.Application/Rastro.Application.csproj" />
+    <Project Path="Rastro.Domain/Rastro.Domain.csproj" />
+  </Folder>
+  <Folder Name="/2 - Infra/">
+    <Project Path="Rastro.Infra/Rastro.Infra.csproj" />
+  </Folder>
+  <Folder Name="/3 - Presentation/">
+    <Project Path="Rastro/Rastro.API.csproj" />
+  </Folder>
+</Solution>
